@@ -36,14 +36,14 @@ public class Algorithms {
                 count++;
             }
 
-            // int[] result = MergeSort.merge(a1, a2);
-            a1 = MergeSort.algorithm(a1);
+           // int[] result = MergeSort.merge(a1, a2);
+           a1 = MergeSort.algorithm(a1);
 
             for (int i : a1) {
                 System.out.print(i + " ");
             }
             System.out.println("");
-            input = br.readLine();
+             input = br.readLine();
         }
 
     }

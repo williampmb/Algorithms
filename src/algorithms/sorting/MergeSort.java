@@ -45,7 +45,7 @@ public class MergeSort {
         //Send the new arrays to be divided
         left = algorithm(left);
         right = algorithm(right);
-        
+
         return merge(left, right);
 
     }
@@ -79,5 +79,5 @@ public class MergeSort {
 
         return merged;
     }
-    
+
 }
