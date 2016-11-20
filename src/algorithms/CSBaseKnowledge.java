@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author William
  */
-public class Algorithms {
+public class CSBaseKnowledge {
 
     /**
      * @param args the command line arguments
