@@ -9,7 +9,7 @@ package algorithms.sorting;
  *
  * @author William
  */
-public class MergeSort {
+public class MergeSort implements Algorithm {
 
     /*
     obs: InsertSort should be the fastest sort for all lists smaller than 5 elements
@@ -17,7 +17,8 @@ public class MergeSort {
     obs3: Cons: It takes memory to storage all sublists.
     Complexity:
      */
-    public static int[] algorithm(int[] array) {
+    @Override
+    public int[] execute(int[] array) {
         int size = array.length;
         //At the size one, it is already sorted and it can't be divided again.
         if (size < 2) {
@@ -43,8 +44,8 @@ public class MergeSort {
             left[i] = array[i];
         }
         //Send the new arrays to be divided
-        left = algorithm(left);
-        right = algorithm(right);
+        left = execute(left);
+        right = execute(right);
 
         return merge(left, right);
 
@@ -79,5 +80,6 @@ public class MergeSort {
 
         return merged;
     }
+
 
 }

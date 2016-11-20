@@ -37,7 +37,7 @@ public class Algorithms {
             }
 
            // int[] result = MergeSort.merge(a1, a2);
-           a1 = MergeSort.algorithm(a1);
+           a1 = new algorithms.sorting.QuickSort().execute(a1);
 
             for (int i : a1) {
                 System.out.print(i + " ");
