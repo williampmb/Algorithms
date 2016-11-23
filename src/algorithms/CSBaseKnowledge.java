@@ -8,6 +8,7 @@ package algorithms;
 import algorithms.sorting.MergeSort;
 import datastructures.BinarySearchTree;
 import algorithms.sorting.QuickSort;
+import datastructures.BinaryNode;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,24 +24,40 @@ public class CSBaseKnowledge {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-       
-        
-        BinarySearchTree bt = new BinarySearchTree(10);
-        int height = bt.height();
-        bt.insert(5);
-        bt.insert(15);
-        bt.insert(18);
-        bt.insert(7);
-        bt.insert(2);
-        
-        BinarySearchTree found = bt.search(300);
-        bt.remove(3);
-        
-        String inOrder = bt.inOrder();
-        
-        
-        System.out.println(found.getData());
+        int[] toInsert = {100, 58, 47, 288, 31, 5, 10, 58, 64, 24, 6, 7, 9, 20, 30, 64, 90};
+        int[] toInsert2 = {20, 27, 15, 9, 17, 24, 30, 5, 10, 16, 19, 23, 25, 32, 7, 23};
+        int[] toInsert3 = {10,8,9,7,6,5,4,3,2,1};
+        testTree(toInsert);
 
+    }
+
+    public static void testTree(int[] toInsert) {
+        BinarySearchTree tree = new BinarySearchTree(toInsert[0]);
+        for (int i = 1; i < toInsert.length; i++) {
+            boolean insert = tree.insert(toInsert[i]);
+            System.out.println("inserting: " + toInsert[i] + " success:" + insert);
+        }
+        
+        System.out.println(tree.inOrder() + " altura: " + tree.height());
+        tree.delete(20);
+        tree.delete(32);
+        tree.delete(5);
+        tree.delete(7);
+        tree.delete(17);
+        tree.delete(116);
+        tree.delete(16);
+        tree.delete(25);
+        tree.delete(23);
+        tree.delete(9);
+        tree.delete(10);
+        tree.delete(27);
+        tree.delete(24);
+        tree.delete(30);
+        tree.delete(30);
+        tree.delete(19);
+        tree.delete(15);
+        System.out.println("");
+          System.out.println(tree.inOrder()  + " altura: " + tree.height());
     }
 
     private static void testSortingAlgorithms() throws NumberFormatException, FileNotFoundException, IOException {

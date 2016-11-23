@@ -11,100 +11,84 @@ package datastructures;
  */
 public class BinarySearchTree {
 
-    private int data;
+    private BinaryNode root;
 
-    public int getData() {
-        return data;
-    }
+    public BinarySearchTree() {
 
-    public void setData(int data) {
-        this.data = data;
     }
-
-    public BinarySearchTree getLeft() {
-        return left;
-    }
-
-    public void setLeft(BinarySearchTree left) {
-        this.left = left;
-    }
-
-    public BinarySearchTree getRight() {
-        return right;
-    }
-
-    public void setRight(BinarySearchTree right) {
-        this.right = right;
-    }
-    private BinarySearchTree left;
-    private BinarySearchTree right;
 
     public BinarySearchTree(int data) {
-        this.data = data;
-        left = null;
-        right = null;
+        root = new BinaryNode(data);
     }
 
     public int height() {
-        int height = 0, heightLeft = 0, heightRight = 0;
-        if (left != null) {
-        }
-        if (right != null) {
-            heightRight = right.height();
-        }
-        int max = heightLeft > heightRight ? heightLeft : heightRight;
-        height = max + 1;
-        return height;
+        return root.height();
     }
 
     public String inOrder() {
-        StringBuilder tree = new StringBuilder();
-        if (left != null) {
-            tree.append(left.inOrder());
+        if (root == null) {
+            return "";
         }
-        tree.append(data + "-");
-
-        if (right != null) {
-            tree.append(right.inOrder());
-        }
-        return tree.toString();
+        return root.inOrder();
     }
 
     public boolean insert(int value) {
-        if (data < value) {
-            if (right == null) {
-                right = new BinarySearchTree(value);
-            } else {
-                right.insert(value);
+        boolean success = false;
+        if (root == null) {
+            root = new BinaryNode(value);
+            success = true;
+        } else{
+            root.insert(value);
+        }
+        return success;
+    }
+
+    public BinaryNode search(int value) {
+        BinaryNode found = null;
+        if (root != null) {
+            found = root.search(value);
+        }
+        return found;
+    }
+
+    public boolean delete(int value) {
+        boolean success = false;
+        if (root != null) {
+            if (root.getData() == value) {
+                if (root.getRight() == null && root.getLeft() == null) {
+                    root = null;
+                } else if (root.getRight() == null) {
+                    root = root.getLeft();
+                } else if (root.getLeft() == null) {
+                    root = root.getRight();
+                } else {
+                    BinaryNode so = smallAtRight(root.right);
+                    copyNode(so, root);
+                    root.right.delete(so.getData());
+                }
+                success = true;
+            } else if (value > root.getData()) {
+                if (root.getRight() != null) {
+                    success = root.getRight().delete(value);
+                }
+            } else if (value < root.getData()) {
+                if (root.getLeft() != null) {
+                    success = root.getLeft().delete(value);
+                }
             }
-            return true;
-        } else if (data > value) {
-            if (left == null) {
-                left = new BinarySearchTree(value);
-            } else {
-                left.insert(value);
-            }
-            return true;
         }
-
-        return false;
+        return success;
     }
 
-    public BinarySearchTree search(int value) {
-        if(data == value){
-            return this;
+    private BinaryNode smallAtRight(BinaryNode so) {
+        BinaryNode smallOne = so;
+        while (smallOne.left != null) {
+            smallOne = smallOne.left;
         }
-        if(data > value){
-            return left.search(value);
-        }
-        if(data < value){
-            return right.search(value);
-        }
-        return null;
+        return smallOne;
     }
 
-    public void remove(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void copyNode(BinaryNode from, BinaryNode to) {
+        to.setData(from.getData());
     }
-
 }
