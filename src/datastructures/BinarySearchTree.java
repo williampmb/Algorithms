@@ -8,6 +8,16 @@ package datastructures;
 /**
  *
  * @author William
+ * Complexity:
+ * -Time
+ * Average Case - Access, search, insertion, deletion : Theta(log(n))
+ * Worst Case - Access, search, insertion, deletion : O(n)
+ * -Space
+ * O(n)
+ * 
+ * obs: Main-memory structures. Faster than B-trees, but it can't handle a huge
+ *      amount of data like B-trees
+ * 
  */
 public class BinarySearchTree {
 
