@@ -101,4 +101,12 @@ public class BinarySearchTree {
     private void copyNode(BinaryNode from, BinaryNode to) {
         to.setData(from.getData());
     }
+
+    public BinaryNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(BinaryNode root) {
+        this.root = root;
+    }
 }

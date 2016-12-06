@@ -25,27 +25,35 @@ public class CSBaseKnowledge {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        MyQueue q = new MyQueue(3);
+        MyHeap h = new MyHeap(2);
 
-        int pop = q.pop();
-        System.out.println(pop);
-        q.print();
+        h.insert(10);
+        h.insert(15);
+        h.insert(12);
+        h.insert(8);
+        h.insert(26);
+        h.insert(32);
+        h.insert(10);
+        h.insert(11);
+        h.insert(132);
+        h.insert(17);
+        h.insert(16);
+        h.insert(22);
+        h.insert(13);
+        h.insert(1);
+        h.insert(44);
+        h.insert(4);
+        h.insert(48);
+        h.insert(70);
 
-        System.out.println("");
-        q.push(1);
-        q.push(2);
-        q.push(3);
-        q.print();
-        int pop1 = q.pop();
-        System.out.println(pop1);
-        q.print();
-        int pop2 = q.pop();
-        System.out.println(pop2);
-        q.print();
-        int pop3 = q.pop();
-        System.out.println(pop3);
-        q.print();
+        int min = h.min();
+        System.out.println(min);
+        min = h.min();
+        System.out.println(min);
         
+        h.insert(144);
+        h.insert(145);
+
     }
 
 }
