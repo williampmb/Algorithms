@@ -9,7 +9,7 @@ package algorithms.sorting;
  *
  * @author William
  */
-public class QuickSort implements Algorithm {
+public class QuickSort implements SortAlgorithm {
 
     int[] a;
 

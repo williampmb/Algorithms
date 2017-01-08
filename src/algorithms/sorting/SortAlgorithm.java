@@ -9,6 +9,6 @@ package algorithms.sorting;
  *
  * @author William
  */
-public interface Algorithm {
+public interface SortAlgorithm {
     public int[] execute(int[] array);
 }

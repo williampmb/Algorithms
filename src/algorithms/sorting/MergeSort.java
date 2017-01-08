@@ -9,7 +9,7 @@ package algorithms.sorting;
  *
  * @author William
  */
-public class MergeSort implements Algorithm {
+public class MergeSort implements SortAlgorithm {
 
     /*
     obs: InsertSort should be the fastest sort for all lists smaller than 5 elements
