@@ -10,14 +10,7 @@ package algorithms.sorting;
  * @author William
  */
 public class PeakFiding {
-    
-    public static void main(String[] args){
-        int[] a = {10,5,4,6,7,100,1,20,33,47,96,4,15,17,44,43,26};
-        int p = aPeakFindingBS(a);
-        System.out.println("peak: " + p);
-    
-    }
-    
+
     //Time complexity O(n)
     public static int aPeakFindingLinear(int[] array){
         int peak = Integer.MIN_VALUE;
