@@ -29,7 +29,7 @@ public class QuickSort implements SortAlgorithm {
         int end = posPivot;
         int current = wall;
         int tmp;
-        
+
         if (current == posPivot) {
             //break when the subarray has lenght one.
             return;
@@ -62,7 +62,7 @@ public class QuickSort implements SortAlgorithm {
                 current++;
             }
         }
-            
+
         if (pivot == a[current]) {
             tmp = a[wall];
             a[wall] = pivot;
@@ -75,6 +75,70 @@ public class QuickSort implements SortAlgorithm {
         //Split the right side of the pivot, from the left side
         quickSort(start, a[wall - 1], wall - 1);
         quickSort(wall, a[end], end);
+
+    }
+
+    public ArrayChar[] execute(ArrayChar[] array) {
+
+        ArrayChar[] c = array;
+        int wall = 0;
+        int pivot = c.length - 1;
+
+        quickSort(wall, pivot, c);
+        return c;
+    }
+
+    private void quickSort(int wall, int posPivot, ArrayChar[] c) {
+        int start = wall;
+        int end = posPivot;
+        ArrayChar tmp, current;
+
+        if (wall == posPivot) {
+            return;
+        }
+
+        for (int i = wall; i < posPivot; i++) {
+            current = c[i];
+            if (current.compare(c[posPivot]) == 1) {
+                tmp = c[wall];
+                c[wall] = current;
+                c[i] = tmp;
+                wall++;
+            }
+        }
+
+        tmp = c[wall];
+        c[wall] = c[posPivot];
+        c[posPivot] = tmp;
+
+        quickSort(start, wall - 1, c);
+        quickSort(wall + 1, end, c);
+
+    }
+
+    class ArrayChar {
+
+        char[] array;
+
+        public ArrayChar(int size) {
+            array = new char[size];
+        }
+
+        private int compare(ArrayChar c) {
+            if (array.length != c.array.length) {
+                return -1;
+            }
+
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > c.array[i]) {
+                    return 1;
+                } else if (array[i] < c.array[i]) {
+                    return -1;
+                }
+
+            }
+            return 0;
+        }
 
     }
 
